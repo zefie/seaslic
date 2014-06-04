@@ -1,28 +1,6 @@
-# Here's the story...
+# About
 
-- Computer purchased with w/Windows 7 preinstalled.
-- Preferred development environment is linux.
-- Sometimes have to do development in windows.
-
-# Problem:
-
-To use the license which came with the computer you have to dual boot between
-linux and windows. Running windows in a virtual machine doesn't work as the
-computers ACPI tables are not exposed - which from a security pov: is good.
-
-# Solution:
-
-Extract the ACPI tables from the computer and embed them into the virtual
-machine BIOS and don't run more than one VM.
-
-# Do the dance:
-- Does /sys/firmware/acpi/tables/ exist?
-    YES: Proceed.
-    NO: Go away you dirty pirate.
-
-On Debian and RHEL, you need to install 'iasl' and 'vim-common' packages first.
-Then download the latest SeaBIOS version and put the archive content into 'seabios.module' catalog.
-
-- ./patch.sh
-- cp /usr/share/qemu/bios.bin /usr/share/qemu/bios-orig.bin
-- cp seabios.submodule/out/bios.bin /usr/share/qemu/bios.bin
+This is an old/modified version of https://github.com/ghuntley/seaslic which
+still works with miminal effort. The current version is difficult due to
+new changes in the seabios upstream repo. This includes old seabios code
+so that you can just patch and go.
